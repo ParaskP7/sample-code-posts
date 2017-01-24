@@ -44,6 +44,7 @@ Open an emulator or connect a physical device to experiment with the sample app,
 ```
 adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\app-debug.apk
 ```
+![alt tag](https://github.com/ParaskP7/sample-code-posts/blob/master/demo.jpg)
 
 Use this command in order to run the static code analysis for the project:
 ```
