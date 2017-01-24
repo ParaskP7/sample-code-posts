@@ -1,5 +1,5 @@
 # Sample Code Posts
-This repository will contain sample code written by myself. Its purpose being, to demonstrate my skills with Android and software development in general, clean code, best practices, testing and all those other must have goodies.
+This repository contains sample code written by myself. Its purpose being, to demonstrate my skills with Android and software development in general, clean code, best practices, testing and all those other must have goodies.
 
 The below listed skills are the main focus:
 
