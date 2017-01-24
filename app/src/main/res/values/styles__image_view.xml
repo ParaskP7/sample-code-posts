@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <style name="CircleImageView.ItemView" parent="">
+        <item name="android:layout_margin">@dimen/item_view__circle_image_view__layout_margin</item>
+        <item name="android:src">@mipmap/ic_launcher</item>
+        <item name="civ_border_color">@color/color_primary_dark</item>
+        <item name="civ_border_width">@dimen/item_view__circle_image_view__civ_border_width</item>
+    </style>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <style name="CircleImageView.Activity" parent="">
+        <item name="android:layout_margin">@dimen/activity__circle_image_view__layout_margin</item>
+        <item name="android:src">@mipmap/ic_launcher</item>
+        <item name="civ_border_color">@color/color_primary_dark</item>
+        <item name="civ_border_width">@dimen/activity__circle_image_view__civ_border_width</item>
+    </style>
+
+</resources>

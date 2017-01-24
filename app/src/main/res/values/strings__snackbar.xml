@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- GENERAL // ***************************************************************************************************** -->
+
+    <string name="snackbar__text__internet_not_available">Internet connection is not available!</string>
+    <string name="snackbar__action_text__ok">OK</string>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <string name="snackbar__text__pull_down_to_refresh">Pull down to refresh your posts!</string>
+
+    <!-- RETRO SERVICE // *********************************************************************************************** -->
+
+    <string name="snackbar__text__error_getting_posts">An error occurred while getting your posts!</string>
+    <string name="snackbar__text__error_getting_comments">An error occurred while getting your comments!</string>
+
+    <!-- DATASTORE // *************************************************************************************************** -->
+
+    <string name="snackbar__text__cannot_save_users">Cannot save the users for the posts!</string>
+    <string name="snackbar__text__cannot_retrieve_user">Cannot retrieve a user for this post!</string>
+    <string name="snackbar__text__cannot_retrieve_post">Cannot retrieve this post!</string>
+
+</resources>

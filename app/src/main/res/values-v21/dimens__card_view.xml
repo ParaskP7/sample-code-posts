@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <dimen name="item_view__card_view__layout_margin">5dp</dimen>
+
+</resources>

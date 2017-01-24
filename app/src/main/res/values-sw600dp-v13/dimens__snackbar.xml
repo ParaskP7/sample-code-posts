@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- GENERAL // ***************************************************************************************************** -->
+
+    <dimen name="snackbar__design_snackbar_background_corner_radius">2dp</dimen>
+
+</resources>

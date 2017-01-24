@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <style name="TextView.ItemView" parent="">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/item_view__text_view__layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/item_view__text_view__layout_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+    </style>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <style name="TextView.Activity.AppBar" parent="">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">left</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextView.Activity.AppBar.Name" parent="TextView.Activity.AppBar">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextView.Activity.AppBar.Username" parent="TextView.Activity.AppBar">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextView.Activity.Label" parent="">
+        <item name="android:layout_margin">@dimen/activity__text_view__label_layout_margin</item>
+    </style>
+
+    <style name="TextView.Activity.Value" parent="">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/activity__text_view__value_layout_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/activity__text_view__value_layout_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/activity__text_view__value_layout_margin_top</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextView.Activity.Title.Value" parent="TextView.Activity.Value">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextView.Activity.Body.Value" parent="TextView.Activity.Value">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextView.Activity.Comments.Value" parent="">
+        <item name="android:layout_margin">@dimen/activity__text_view__comments_value_layout_margin</item>
+    </style>
+
+</resources>

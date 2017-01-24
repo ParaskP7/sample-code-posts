@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <dimen name="activity__fab__layout_margin">16dp</dimen>
+
+</resources>

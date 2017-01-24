@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <dimen name="item_view__text_view__layout_margin">10dp</dimen>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <dimen name="activity__text_view__label_layout_margin">10dp</dimen>
+    <dimen name="activity__text_view__value_layout_margin_left">25dp</dimen>
+    <dimen name="activity__text_view__value_layout_margin_right">25dp</dimen>
+    <dimen name="activity__text_view__value_layout_margin_top">60dp</dimen>
+    <dimen name="activity__text_view__comments_value_layout_margin">10dp</dimen>
+
+</resources>

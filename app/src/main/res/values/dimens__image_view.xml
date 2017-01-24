@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <dimen name="item_view__circle_image_view__layout_dimen">96dp</dimen>
+    <dimen name="item_view__circle_image_view__layout_margin">5dp</dimen>
+    <dimen name="item_view__circle_image_view__civ_border_width">2dp</dimen>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <dimen name="activity__circle_image_view__layout_dimen">38dp</dimen>
+    <dimen name="activity__circle_image_view__layout_margin">10dp</dimen>
+    <dimen name="activity__circle_image_view__civ_border_width">1dp</dimen>
+
+</resources>

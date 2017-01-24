@@ -1,0 +1,29 @@
+apply from: 'app/config/gradle/versioning.gradle'
+
+buildscript {
+
+    repositories {
+
+        jcenter()
+        mavenCentral()
+
+    }
+
+}
+
+subprojects {
+
+    repositories {
+
+        jcenter()
+        mavenCentral()
+
+    }
+
+}
+
+task clean(type: Delete) {
+
+    delete rootProject.buildDir
+
+}

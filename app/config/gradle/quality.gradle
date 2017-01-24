@@ -1,0 +1,97 @@
+// LINT *********************************************************************************************************************
+
+// Lint checks. See https://developer.android.com/studio/write/lint.html
+android {
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        ignoreWarnings false
+        checkReleaseBuilds true
+        warningsAsErrors true
+        lintConfig file("config/lint/lint.xml")
+        htmlReport true
+        xmlReport true
+        disable 'GoogleAppIndexingWarning'
+    }
+}
+
+// CHECKSTYLE ***************************************************************************************************************
+
+// Checkstyle plugin details: http://checkstyle.sourceforge.net/
+apply plugin: 'checkstyle'
+
+checkstyle {
+    config resources.text.fromFile("$rootProject.projectDir/app/config/static_analysis/checkstyle/checkstyle_rules.xml")
+    ignoreFailures false
+    configProperties = ["checkstyle.suppressions.file": "$rootProject.projectDir/app/config/static_analysis/checkstyle/checkstyle_suppression_filter.xml"]
+    showViolations true
+    toolVersion '7.4'
+    tasks.withType(Checkstyle) {
+        reports {
+            xml.enabled true
+            html.enabled true
+        }
+    }
+}
+
+task checkstyle(type: Checkstyle) {
+    source = ['src/main/java/', 'src/test/java/']
+    classpath = files()
+}
+
+// PMD **********************************************************************************************************************
+
+// Pmd plugin details: https://docs.gradle.org/current/userguide/pmd_plugin.html
+apply plugin: 'pmd'
+
+pmd {
+    consoleOutput true
+    ignoreFailures false
+    rulePriority 5 // Strictest mode available
+    ruleSetConfig resources.text.fromFile("$rootProject.projectDir/app/config/static_analysis/pmd/pmd_rules.xml")
+    toolVersion '5.5.2'
+    tasks.withType(Pmd) {
+        reports {
+            xml.enabled true
+            html.enabled true
+        }
+    }
+}
+
+task pmd(type: Pmd) {
+    source = ['src/main/java/', 'src/test/java/']
+}
+
+// FINDBUGS *****************************************************************************************************************
+
+// Findbugs plugin details: http://findbugs.sourceforge.net/
+apply plugin: 'findbugs'
+
+findbugs {
+    effort 'max'
+    ignoreFailures false
+    excludeFilter file("$rootProject.projectDir/app/config/static_analysis/findbugs/findbugs-exclusions.xml")
+    reportLevel 'low'
+    toolVersion '3.0.1'
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled true
+            html.enabled false
+        }
+    }
+}
+
+task findbugs(type: FindBugs) {
+    source = ['src/main/java/', 'src/test/java/']
+    classes = files("$project.buildDir/intermediates/classes")
+    classpath = files()
+}
+
+// STATIC ANALYSIS **********************************************************************************************************
+
+// Add the static analysis tasks into the check task of gradle. Lint is already included by default.
+check.doLast {
+    project.tasks.getByName('checkstyle').execute()
+    project.tasks.getByName('pmd').execute()
+    project.tasks.getByName('findbugs').execute()
+}

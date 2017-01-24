@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <style name="CardView.ItemView" parent="">
+        <item name="android:layout_margin">@dimen/item_view__card_view__layout_margin</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/item_view__card_view__card_corner_radius</item>
+        <item name="cardElevation">@dimen/item_view__card_view__card_elevation</item>
+    </style>
+
+</resources>

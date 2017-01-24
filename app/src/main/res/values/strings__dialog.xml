@@ -1,0 +1,8 @@
+<resources>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <string name="dialog__loading__title">Loading Posts</string>
+    <string name="dialog__loading__message">Please wait!</string>
+
+</resources>

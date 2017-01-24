@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:id="@+id/activity_post__coordinator_layout"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar android:id="@+id/activity_post__toolbar"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="?attr/actionBarSize"
+                                           android:background="?attr/colorPrimary"
+                                           app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/colorPrimary"
+                        android:theme="@style/AppTheme.Toolbar"
+                        tools:ignore="UnusedAttribute">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="?attr/actionBarSize"
+                          android:background="?attr/colorPrimary"
+                          android:orientation="horizontal"
+                          android:theme="@style/AppTheme.Toolbar">
+
+                <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/activity_post__avatar_circle_image_view"
+                                                              style="@style/CircleImageView.Activity"
+                                                              android:layout_width="@dimen/activity__circle_image_view__layout_dimen"
+                                                              android:layout_height="@dimen/activity__circle_image_view__layout_dimen"
+                                                              android:transitionName="@string/activity__avatar_shared_element"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="48dp"
+                              android:layout_marginBottom="7dp"
+                              android:layout_marginRight="15dp"
+                              android:layout_marginTop="7dp"
+                              android:orientation="vertical"
+                              tools:ignore="NegativeMargin,RtlHardcoded">
+
+                    <android.support.v7.widget.AppCompatTextView android:id="@+id/activity_post__name_text_view"
+                                                                 style="@style/TextView.Activity.AppBar.Name"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"/>
+
+                    <android.support.v7.widget.AppCompatTextView android:id="@+id/activity_post__username_text_view"
+                                                                 style="@style/TextView.Activity.AppBar.Username"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView style="@style/TextView.Activity.Label"
+                                                         android:layout_width="wrap_content"
+                                                         android:layout_height="wrap_content"
+                                                         android:text="@string/post_activity__title_label"/>
+
+            <android.support.v7.widget.AppCompatTextView android:id="@+id/activity_post__title_text_view"
+                                                         style="@style/TextView.Activity.Title.Value"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView style="@style/TextView.Activity.Label"
+                                                         android:layout_width="wrap_content"
+                                                         android:layout_height="wrap_content"
+                                                         android:text="@string/post_activity__body_label"/>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_alignParentRight="true"
+                          android:orientation="horizontal"
+                          tools:ignore="RelativeOverlap,RtlHardcoded">
+
+                <android.support.v7.widget.AppCompatTextView style="@style/TextView.Activity.Label"
+                                                             android:layout_width="wrap_content"
+                                                             android:layout_height="wrap_content"
+                                                             android:text="@string/post_activity__comments_label"/>
+
+                <android.support.v7.widget.AppCompatTextView android:id="@+id/activity_post__number_of_comments_text_view"
+                                                             style="@style/TextView.Activity.Comments.Value"
+                                                             android:layout_width="wrap_content"
+                                                             android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView android:id="@+id/activity_post__body_text_view"
+                                                         style="@style/TextView.Activity.Body.Value"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

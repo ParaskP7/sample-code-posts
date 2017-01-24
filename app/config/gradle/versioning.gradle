@@ -1,0 +1,88 @@
+ext.versions = [
+
+        // Plugins
+        androidPluginVersion          : '2.2.3',
+        realmPluginVersion            : '2.3.0',
+        retrolambdaPluginVersion      : '3.4.0',
+        jacocoPluginVersion           : '0.7.8',
+
+        // Build
+        minSdkVersion                 : 15,
+        targetSdkVersion              : 25,
+        compileSdkVersion             : 25,
+        buildToolsVersion             : '25.0.2',
+
+        // Android
+        supportLibrariesVersion       : '25.1.0',
+
+        // Important
+        mosbyMvpVersion               : '2.0.1',
+        dagger2Version                : '2.8',
+        butterKnifeVersion            : '8.5.0',
+        gsonVersion                   : '2.8.0',
+        retrofit2Version              : '2.1.0',
+
+        // ReactiveX
+        rxAndroid2Version             : '2.0.1',
+        rxJava2Version                : '2.0.4',
+        retrofit2RxJava2AdapterVersion: '1.0.0',
+
+        // Image
+        picassoVersion                : '2.5.2',
+        circleImageViewVersion        : '2.1.0',
+
+        // Other
+        timberVersion                 : '4.5.1',
+        annotationsVersion            : '2.0.1',
+
+        // Debug
+        rxLintVersion                 : '1.0',
+
+        // Test
+        junitVersion                  : '4.12',
+        assertJJava8Version           : '3.6.1',
+        assertJJava7Version           : '2.6.0',
+        mockitoVersion                : '1.10.19',
+        rxJavaVersion                 : '1.2.5',
+        robolectricVersion            : '3.2.2',
+        espressoVersion               : '2.2.2',
+        androidTestRunnerVersion      : '0.5',
+
+]
+
+ext {
+    /**
+     * Builds an Android version code from the version of the project.
+     * This is designed to handle the -SNAPSHOT and -RC format.
+     *
+     * I.e. during development the version ends with -SNAPSHOT. As the code stabilizes and release nears
+     * one or many Release Candidates are tagged. These all end with "-RC1", "-RC2" etc.
+     * And the final release is without any suffix.
+     * @return
+     */
+    buildVersionCode = {
+        //The rules is as follows:
+        //-SNAPSHOT counts as 0
+        //-RC* counts as the RC number, i.e. 1 to 98
+        //final release counts as 99.
+        //Thus you can only have 98 Release Candidates, which ought to be enough for everyone
+
+        def candidate = "99"
+        def (major, minor, patch) = version.toLowerCase().replaceAll('-', '').tokenize('.')
+        if (patch.endsWith("snapshot")) {
+            candidate = "0"
+            patch = patch.replaceAll("[^0-9]", "")
+        } else {
+            def rc
+            (patch, rc) = patch.tokenize("rc")
+            if (rc) {
+                candidate = rc
+            }
+        }
+
+        (major, minor, patch, candidate) = [major, minor, patch, candidate].collect { it.toInteger() }
+
+        (major * 1000000) + (minor * 10000) + (patch * 100) + candidate;
+    }
+
+}

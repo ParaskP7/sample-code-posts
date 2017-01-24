@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- ITEM VIEW // *************************************************************************************************** -->
+
+    <dimen name="item_view__card_view__layout_margin">1dp</dimen> <!-- This happens because a CardView has extra margin in each edge on Pre-Lollipop. -->
+    <dimen name="item_view__card_view__card_corner_radius">2dp</dimen>
+    <dimen name="item_view__card_view__card_elevation">3dp</dimen>
+
+</resources>

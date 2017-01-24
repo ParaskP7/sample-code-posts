@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- ACTIVITY // **************************************************************************************************** -->
+
+    <string name="activity__not_applicable">n/a</string>
+    <string name="activity__avatar_shared_element">avatar</string>
+
+    <!-- POSTS ACTIVITY // ********************************************************************************************** -->
+
+    <string name="posts_activity__label">Posts</string>
+
+    <!-- POST ACTIVITY // *********************************************************************************************** -->
+
+    <string name="post_activity__label">Post</string>
+    <string name="post_activity__title_label">Title:</string>
+    <string name="post_activity__body_label">Body:</string>
+    <string name="post_activity__comments_label">Comments:</string>
+
+</resources>

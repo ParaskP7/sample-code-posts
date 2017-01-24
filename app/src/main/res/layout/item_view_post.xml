@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    style="@style/CardView.ItemView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/item_view_post__avatar_circle_image_view"
+                                                      style="@style/CircleImageView.ItemView"
+                                                      android:layout_width="@dimen/item_view__circle_image_view__layout_dimen"
+                                                      android:layout_height="@dimen/item_view__circle_image_view__layout_dimen"
+                                                      android:transitionName="@string/activity__avatar_shared_element"
+                                                      tools:ignore="UnusedAttribute"/>
+
+        <android.support.v7.widget.AppCompatTextView android:id="@+id/item_view_post__title_text_view"
+                                                     style="@style/TextView.ItemView"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     android:layout_toRightOf="@+id/item_view_post__avatar_circle_image_view"
+                                                     tools:ignore="RtlHardcoded"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

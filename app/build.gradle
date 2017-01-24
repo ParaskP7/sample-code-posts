@@ -1,0 +1,123 @@
+buildscript {
+
+    repositories {
+
+        jcenter()
+        mavenCentral()
+
+    }
+
+    dependencies {
+
+        classpath "com.android.tools.build:gradle:$versions.androidPluginVersion"
+        classpath "io.realm:realm-gradle-plugin:$versions.realmPluginVersion"
+        classpath "me.tatarka:gradle-retrolambda:$versions.retrolambdaPluginVersion"
+
+    }
+
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+apply plugin: 'me.tatarka.retrolambda'
+
+apply from: 'config/gradle/quality.gradle'
+apply from: 'config/gradle/jacoco.gradle'
+
+android {
+
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
+    defaultConfig {
+        applicationId group // Comes from: gradle.properties
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true // For vector image support. Could be only used with Gradle plugin 2.0+.
+        versionCode buildVersionCode() // Comes from: versioning.gradle
+        versionName version // Comes from: gradle.properties
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/rxjava.properties'
+    }
+
+    testOptions {
+        unitTests.all {
+            systemProperty 'robolectric.logging.enabled', 'true'
+            systemProperty 'robolectric.logging', 'stdout'
+            // Print test details in the terminal (or CI).
+            testLogging {
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+                exceptionFormat 'full'
+            }
+        }
+    }
+
+    compileOptions {
+        encoding 'UTF-8'
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+
+    // Android Support
+    compile "com.android.support:support-annotations:$versions.supportLibrariesVersion"
+    compile "com.android.support:appcompat-v7:$versions.supportLibrariesVersion"
+    compile "com.android.support:recyclerview-v7:$versions.supportLibrariesVersion"
+    compile "com.android.support:cardview-v7:$versions.supportLibrariesVersion"
+    compile "com.android.support:design:$versions.supportLibrariesVersion"
+    // MVP
+    compile "com.hannesdorfmann.mosby:mvp:$versions.mosbyMvpVersion"
+    // Dependency Injection
+    compile "com.google.dagger:dagger:$versions.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$versions.dagger2Version"
+    provided "javax.annotation:jsr250-api:1.0"
+    // Binding
+    compile "com.jakewharton:butterknife:$versions.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion"
+    // REST
+    compile "com.google.code.gson:gson:$versions.gsonVersion"
+    compile "com.squareup.retrofit2:retrofit:$versions.retrofit2Version"
+    compile "com.squareup.retrofit2:converter-gson:$versions.retrofit2Version"
+    // ReactiveX
+    compile "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2Version"
+    compile "io.reactivex.rxjava2:rxjava:$versions.rxJava2Version"
+    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$versions.retrofit2RxJava2AdapterVersion"
+    // Image
+    compile "com.squareup.picasso:picasso:$versions.picassoVersion"
+    compile "de.hdodenhof:circleimageview:$versions.circleImageViewVersion"
+    // Logging
+    compile "com.jakewharton.timber:timber:$versions.timberVersion"
+    // @Nonnull/@Nullable Annotations
+    compile "com.google.code.findbugs:annotations:$versions.annotationsVersion"
+    // Debug - Rx lint is a single lint check that checks if an RxJava subscriber is handling the onError() callback.
+    debugCompile "nl.littlerobots.rxlint:rxlint:$versions.rxLintVersion"
+    // Unit Test
+    testCompile "junit:junit:$versions.junitVersion"
+    testCompile "org.assertj:assertj-core:$versions.assertJJava8Version"
+    // Mockito
+    testCompile "org.mockito:mockito-core:$versions.mockitoVersion"
+    testCompile "io.reactivex:rxjava:$versions.rxJavaVersion" // Realm issue: java.lang.NoClassDefFoundError: rx.Observable
+    // Robolectric Test
+    testCompile "org.robolectric:robolectric:$versions.robolectricVersion"
+    testCompile "org.robolectric:shadows-support-v4:$versions.robolectricVersion"
+    testCompile "org.khronos:opengl-api:gl1.1-android-2.1_r1" // See https://github.com/robolectric/robolectric/issues/1932
+    // Instrumentation Test
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espressoVersion")
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion") {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+        exclude module: 'support-v13'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'design'
+    }
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$versions.espressoVersion"
+    androidTestCompile "com.android.support.test:runner:$versions.androidTestRunnerVersion"
+    androidTestCompile "com.android.support:support-annotations:$versions.supportLibrariesVersion" // Fixes conflict issue.
+    androidTestCompile "org.assertj:assertj-core:$versions.assertJJava7Version" // To avoid dex error java 7 library is used.
+
+}
