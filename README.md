@@ -44,7 +44,7 @@ Open an emulator or connect a physical device to experiment with the sample app,
 ```
 gradlew uninstallDebug | gradlew installDebug
 ```
-Or faster yet and targeting a specific device (or in our case an emulator)!
+Or faster yet and targeting a specific device (in our case an emulator)!
 ```
 adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\app-debug.apk
 ```
