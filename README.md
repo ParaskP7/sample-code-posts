@@ -42,6 +42,10 @@ gradlew clean build -x check
 
 Open an emulator or connect a physical device to experiment with the sample app, use the below command, which first uninstalls and then installs the sample app:
 ```
+gradlew uninstallDebug | gradlew installDebug
+```
+Or faster yet and targeting a specific device (or in our case an emulator)!
+```
 adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\app-debug.apk
 ```
 ![alt tag](https://github.com/ParaskP7/sample-code-posts/blob/master/demo.jpg)
