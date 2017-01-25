@@ -4,7 +4,7 @@ This repository contains sample code written by myself. Its purpose being, to de
 The below listed skills are the main focus:
 
 1. Architectural Pattern
-    1. [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) ```(canonical code only, without any libraries)```
+    1. [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) ```(Canonical code only, without any libraries)```
     2. [Mosby MVP](https://github.com/sockeqwe/mosby) ```(Helper MVP library)```
 2. Libraries
     1. [Dagger 2](https://github.com/google/dagger) ```(A fast dependency injector for Android and Java)```
