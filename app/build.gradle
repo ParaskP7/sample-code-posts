@@ -38,6 +38,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes {
+        debug {
+            debuggable true
+        }
+    }
+
     packagingOptions {
         pickFirst 'META-INF/rxjava.properties'
     }
