@@ -1,7 +1,7 @@
 ext.versions = [
 
         // Plugins
-        androidPluginVersion          : '2.2.3',
+        androidPluginVersion          : '2.3.0',
         realmPluginVersion            : '2.3.0',
         retrolambdaPluginVersion      : '3.4.0',
         jacocoPluginVersion           : '0.7.8',
