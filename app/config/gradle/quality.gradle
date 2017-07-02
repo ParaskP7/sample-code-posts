@@ -25,7 +25,7 @@ checkstyle {
     ignoreFailures false
     configProperties = ["checkstyle.suppressions.file": "$rootProject.projectDir/app/config/static_analysis/checkstyle/checkstyle_suppression_filter.xml"]
     showViolations true
-    toolVersion '7.4'
+    toolVersion versions.checkstylePluginVersion
     tasks.withType(Checkstyle) {
         reports {
             xml.enabled true
@@ -49,7 +49,7 @@ pmd {
     ignoreFailures false
     rulePriority 5 // Strictest mode available
     ruleSetConfig resources.text.fromFile("$rootProject.projectDir/app/config/static_analysis/pmd/pmd_rules.xml")
-    toolVersion '5.5.2'
+    toolVersion versions.pmdPluginVersion
     tasks.withType(Pmd) {
         reports {
             xml.enabled true
@@ -72,7 +72,7 @@ findbugs {
     ignoreFailures false
     excludeFilter file("$rootProject.projectDir/app/config/static_analysis/findbugs/findbugs-exclusions.xml")
     reportLevel 'low'
-    toolVersion '3.0.1'
+    toolVersion versions.findbugsPluginVersion
     tasks.withType(FindBugs) {
         reports {
             xml.enabled true

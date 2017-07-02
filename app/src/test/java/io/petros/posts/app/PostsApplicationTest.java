@@ -6,15 +6,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.internal.util.reflection.Whitebox;
 
 import io.petros.posts.PreconfiguredRobolectricTestRunner;
 import io.petros.posts.RobolectricGeneralTestHelper;
 import io.petros.posts.app.actions.SnackbarActions;
-import io.petros.posts.app.graph.components.ApplicationComponent;
 import io.realm.Realm;
 
-import static io.petros.posts.util.WhiteboxTestUtilities.APPLICATION_COMPONENT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -34,13 +31,6 @@ public class PostsApplicationTest extends RobolectricGeneralTestHelper {
     }
 
     // HELPER // ************************************************************************************************************
-
-    @Test
-    public void getApplicationComponentTest() {
-        final ApplicationComponent applicationComponent = PostsApplication.getApplicationComponent();
-
-        assertThat(applicationComponent).isEqualTo(Whitebox.getInternalState(application, APPLICATION_COMPONENT));
-    }
 
     @Test
     public void snackbarTestFromActivity() {

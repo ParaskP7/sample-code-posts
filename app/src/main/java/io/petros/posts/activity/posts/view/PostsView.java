@@ -1,6 +1,6 @@
 package io.petros.posts.activity.posts.view;
 
-import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceView;
 
 import java.util.List;
 

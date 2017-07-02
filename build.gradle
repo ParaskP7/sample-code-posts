@@ -6,6 +6,9 @@ buildscript {
 
         jcenter()
         mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
 
     }
 
@@ -17,6 +20,9 @@ subprojects {
 
         jcenter()
         mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
 
     }
 

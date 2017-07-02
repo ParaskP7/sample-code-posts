@@ -3,13 +3,14 @@ package io.petros.posts.activity.posts.view;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hannesdorfmann.mosby.mvp.lce.MvpLceFragment;
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceFragment;
 
 import java.util.List;
 
@@ -33,9 +34,11 @@ public class PostsFragment extends MvpLceFragment<SwipeRefreshLayout, List<Post>
     @BindString(R.string.dialog__loading__message) String loadingMessage;
 
     @BindView(R.id.posts_fragment__posts_recycler_view) RecyclerView postsRecyclerView;
-    private PostRecyclerViewAdapter postRecyclerViewAdapter;
+    @VisibleForTesting PostRecyclerViewAdapter postRecyclerViewAdapter;
 
-    private ProgressDialog progressDialog;
+    @VisibleForTesting ProgressDialog progressDialog;
+
+    // LIFECYCLE // *********************************************************************************************************
 
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container,
@@ -72,6 +75,12 @@ public class PostsFragment extends MvpLceFragment<SwipeRefreshLayout, List<Post>
     @Override
     public PostsPresenter createPresenter() {
         return postsPresenter;
+    }
+
+    @Override
+    public void onDestroyView() {
+        postsPresenter.detachView(false);
+        super.onDestroyView();
     }
 
     // VIEW // **************************************************************************************************************

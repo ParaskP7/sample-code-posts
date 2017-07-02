@@ -1,8 +1,10 @@
 package io.petros.posts.activity.posts.presenter;
 
-import com.hannesdorfmann.mosby.mvp.MvpNullObjectBasePresenter;
+import com.hannesdorfmann.mosby3.mvp.MvpNullObjectBasePresenter;
 
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 import io.petros.posts.activity.posts.model.PostsModel;
 import io.petros.posts.activity.posts.view.PostsView;
@@ -11,6 +13,7 @@ import io.petros.posts.model.User;
 import io.petros.posts.service.detector.InternetAvailabilityDetector;
 import io.petros.posts.service.retrofit.RetrofitService;
 import io.petros.posts.util.rx.RxSchedulers;
+import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
 
 public class PostsPresenterImpl extends MvpNullObjectBasePresenter<PostsView> implements PostsPresenter {
@@ -19,6 +22,8 @@ public class PostsPresenterImpl extends MvpNullObjectBasePresenter<PostsView> im
     private final RetrofitService retrofitService;
     private final RxSchedulers rxSchedulers;
     private final InternetAvailabilityDetector internetAvailabilityDetector;
+
+    @Nullable private Disposable subscription;
 
     public PostsPresenterImpl(final PostsModel postsModel, final RetrofitService retrofitService, final RxSchedulers rxSchedulers,
                               final InternetAvailabilityDetector internetAvailabilityDetector) {
@@ -55,7 +60,7 @@ public class PostsPresenterImpl extends MvpNullObjectBasePresenter<PostsView> im
     // @formatter:on
     private void loadPosts() {
         Timber.i("Loading users...");
-        retrofitService.users()
+        subscription = retrofitService.users()
                 .observeOn(rxSchedulers.getAndroidMainThreadScheduler())
                 .subscribeOn(rxSchedulers.getIoScheduler())
                 .subscribe(this::handleUsersResponse, this::handleUsersError);
@@ -65,7 +70,7 @@ public class PostsPresenterImpl extends MvpNullObjectBasePresenter<PostsView> im
         final boolean isSuccessful = postsModel.saveUsers(users);
         if (isSuccessful) {
             Timber.i("Loading posts...");
-            retrofitService.posts()
+            subscription = retrofitService.posts()
                     .observeOn(rxSchedulers.getAndroidMainThreadScheduler())
                     .subscribeOn(rxSchedulers.getIoScheduler())
                     .subscribe(this::handlePostsResponse, this::handlePostsError);
@@ -87,6 +92,14 @@ public class PostsPresenterImpl extends MvpNullObjectBasePresenter<PostsView> im
     private void handlePostsError(final Throwable throwable) {
         Timber.w(throwable, "Error while loading posts...");
         getView().showError(throwable, false);
+    }
+
+    @Override
+    public void detachView(boolean retainInstance) {
+        super.detachView(retainInstance);
+        if (subscription != null) {
+            subscription.dispose();
+        }
     }
 
 }

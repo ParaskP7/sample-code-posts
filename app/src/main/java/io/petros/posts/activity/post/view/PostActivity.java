@@ -71,6 +71,16 @@ public class PostActivity extends AbstractAppActivity implements PostView {
         setSnackbar(coordinatorLayout);
     }
 
+    @Override
+    protected void onDestroy() {
+        unsetPresenter();
+        super.onDestroy();
+    }
+
+    private void unsetPresenter() {
+        postPresenter.detachView();
+    }
+
     // VIEW // **************************************************************************************************************
 
     @Override

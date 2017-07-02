@@ -14,4 +14,6 @@ public interface PostPresenter {
 
     void loadPostUserAndPost(final Bundle extras);
 
+    void detachView();
+
 }

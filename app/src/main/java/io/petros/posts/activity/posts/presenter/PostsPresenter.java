@@ -1,6 +1,6 @@
 package io.petros.posts.activity.posts.presenter;
 
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
+import com.hannesdorfmann.mosby3.mvp.MvpPresenter;
 
 import io.petros.posts.activity.posts.view.PostsView;
 

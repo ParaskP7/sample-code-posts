@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.internal.util.reflection.Whitebox;
 
 import java.util.List;
 
@@ -12,7 +11,6 @@ import io.petros.posts.PreconfiguredRobolectricTestRunner;
 import io.petros.posts.RobolectricGeneralTestHelper;
 import io.petros.posts.model.Post;
 
-import static io.petros.posts.util.WhiteboxTestUtilities.ALL_POSTS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -32,7 +30,7 @@ public class PostRecyclerViewAdapterTest extends RobolectricGeneralTestHelper {
     public void setUp() {
         setUpMocks();
         postRecyclerViewAdapter = new PostRecyclerViewAdapter(onViewClickListenerMock);
-        Whitebox.setInternalState(postRecyclerViewAdapter, ALL_POSTS, posts);
+        postRecyclerViewAdapter.allPosts = posts;
     }
 
     @Test
@@ -52,7 +50,7 @@ public class PostRecyclerViewAdapterTest extends RobolectricGeneralTestHelper {
 
     @Test
     public void reloadAdapterTest() {
-        Whitebox.setInternalState(postRecyclerViewAdapter, ALL_POSTS, postsMock);
+        postRecyclerViewAdapter.allPosts = postsMock;
 
         postRecyclerViewAdapter.reloadAdapter(posts);
 

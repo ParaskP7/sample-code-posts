@@ -1,5 +1,6 @@
 package io.petros.posts.activity.posts.view.recycler;
 
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostViewHolder
 
     private final OnViewClickListener onViewClickListener;
 
-    private final List<Post> allPosts;
+    @VisibleForTesting List<Post> allPosts;
 
     public PostRecyclerViewAdapter(final OnViewClickListener onViewClickListener) {
         this.onViewClickListener = onViewClickListener;

@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.internal.util.reflection.Whitebox;
 import org.robolectric.shadows.support.v4.SupportFragmentTestUtil;
 
 import io.petros.posts.PreconfiguredRobolectricTestRunner;
@@ -15,8 +14,6 @@ import io.petros.posts.RobolectricGeneralTestHelper;
 import io.petros.posts.activity.posts.presenter.PostsPresenter;
 import io.petros.posts.activity.posts.view.recycler.PostRecyclerViewAdapter;
 
-import static io.petros.posts.util.WhiteboxTestUtilities.POST_RECYCLER_VIEW_ADAPTER;
-import static io.petros.posts.util.WhiteboxTestUtilities.PROGRESS_DIALOG;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -44,8 +41,8 @@ public class PostsFragmentTest extends RobolectricGeneralTestHelper {
         SupportFragmentTestUtil.startFragment(postsFragment);
         postsFragment.setPresenter(postsPresenterMock);
         postsFragment.postsRecyclerView = postsRecyclerViewMock;
-        Whitebox.setInternalState(postsFragment, POST_RECYCLER_VIEW_ADAPTER, postRecyclerViewAdapterMock);
-        Whitebox.setInternalState(postsFragment, PROGRESS_DIALOG, progressDialogMock);
+        postsFragment.postRecyclerViewAdapter = postRecyclerViewAdapterMock;
+        postsFragment.progressDialog = progressDialogMock;
     }
 
     @Test
@@ -82,8 +79,7 @@ public class PostsFragmentTest extends RobolectricGeneralTestHelper {
     public void notifyUserAboutInternetUnavailabilityTest() {
         postsFragment.showLoading(PULL_TO_REFRESH);
 
-        final ProgressDialog progressDialog = (ProgressDialog) Whitebox.getInternalState(postsFragment, PROGRESS_DIALOG);
-        assertThat(progressDialog.isShowing()).isTrue();
+        assertThat(postsFragment.progressDialog.isShowing()).isTrue();
     }
 
     @Test

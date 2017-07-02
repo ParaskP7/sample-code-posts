@@ -1,5 +1,5 @@
 # Sample Code: Posts
-This repository contains sample code written by myself. Its purpose being, to demonstrate my skills with Android and software development in general, clean code, best practices, testing and all those other must have goodies.
+This repository contains sample code. Its purpose being, to quickly demonstrate Android and software development in general, clean code, best practices, testing and all those other must know goodies.
 
 The below listed skills are the main focus:
 
@@ -46,7 +46,7 @@ gradlew uninstallDebug | gradlew installDebug
 ```
 Or faster yet and targeting a specific device (in our case an emulator)!
 ```
-adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\app-debug.apk
+adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\debug\app-debug.apk
 ```
 ![alt tag](https://github.com/ParaskP7/sample-code-posts/blob/master/demo.jpg)
 

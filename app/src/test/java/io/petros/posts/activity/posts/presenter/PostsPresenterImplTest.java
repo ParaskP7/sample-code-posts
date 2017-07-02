@@ -11,7 +11,6 @@ import io.petros.posts.service.detector.InternetAvailabilityDetector;
 import io.petros.posts.service.retrofit.RetrofitService;
 import io.reactivex.Observable;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -32,25 +31,6 @@ public class PostsPresenterImplTest extends GeneralTestHelper {
         setUpMocks();
         postsPresenter = new PostsPresenterImpl(postsModelMock, retrofitServiceMock, rxSchedulers,
                 internetAvailabilityDetectorMock);
-    }
-
-    @Test
-    public void attachViewTest() {
-        postsPresenter.attachView(postsViewMock);
-
-        assertThat(postsPresenter.getView()).isEqualTo(postsViewMock);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void givenTheViewIsNotAttached_WhenGetViewIsCalled_ThenAnExceptionIsThrown() {
-        postsPresenter.getView();
-    }
-
-    @Test
-    public void getViewTest() {
-        postsPresenter.attachView(postsViewMock);
-
-        assertThat(postsPresenter.getView()).isEqualTo(postsViewMock);
     }
 
     @Test

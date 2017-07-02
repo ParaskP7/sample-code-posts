@@ -14,6 +14,7 @@ import io.petros.posts.model.User;
 import io.petros.posts.service.detector.InternetAvailabilityDetector;
 import io.petros.posts.service.retrofit.RetrofitService;
 import io.petros.posts.util.rx.RxSchedulers;
+import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
 
 public class PostPresenterImpl implements PostPresenter {
@@ -24,6 +25,8 @@ public class PostPresenterImpl implements PostPresenter {
     private final InternetAvailabilityDetector internetAvailabilityDetector;
 
     @Nullable private PostView postView;
+
+    @Nullable private Disposable subscription;
 
     public PostPresenterImpl(final PostModel postModel, final RetrofitService retrofitService, final RxSchedulers rxSchedulers,
                              final InternetAvailabilityDetector internetAvailabilityDetector) {
@@ -92,7 +95,7 @@ public class PostPresenterImpl implements PostPresenter {
     }
 
     private void loadPost(final String postTitle, final String postBody, final Integer postId) {
-        retrofitService.comments(postId)
+        subscription = retrofitService.comments(postId)
                 .observeOn(rxSchedulers.getAndroidMainThreadScheduler())
                 .subscribeOn(rxSchedulers.getIoScheduler())
                 .subscribe((comments) -> handleResponse(postTitle, postBody, comments), this::handleError);
@@ -108,6 +111,16 @@ public class PostPresenterImpl implements PostPresenter {
         Timber.e(throwable, "Error getting comments...");
         if (isViewAttached()) {
             getView().showError();
+        }
+    }
+
+    @Override
+    public void detachView() {
+        if (postView != null) {
+            postView = null;
+        }
+        if (subscription != null) {
+            subscription.dispose();
         }
     }
 
