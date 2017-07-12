@@ -1,7 +1,7 @@
 ext.versions = [
 
         // Plugins
-        androidPluginVersion    : '3.0.0-alpha5',
+        androidPluginVersion    : '3.0.0-alpha6',
         realmPluginVersion      : '3.4.0',
 
         // Quality Plugins
@@ -22,7 +22,7 @@ ext.versions = [
         // Important
         mosbyMvpVersion         : '3.0.4',
         dagger2Version          : '2.11',
-        butterKnifeVersion      : '8.6.0',
+        butterKnifeVersion      : '8.7.0',
         gsonVersion             : '2.8.1',
         retrofit2Version        : '2.3.0',
 

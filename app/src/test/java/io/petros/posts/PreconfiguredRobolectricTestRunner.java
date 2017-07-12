@@ -12,7 +12,7 @@ import io.petros.posts.app.TestPostsApplication;
  */
 public class PreconfiguredRobolectricTestRunner extends RobolectricTestRunner {
 
-    private static final int SDK_API_LEVEL_TO_EMULATE = 23;
+    private static final int SDK_API_LEVEL_TO_EMULATE = 25;
 
     /**
      * Creates a runner to run {@code testClass}. Looks in your working directory for your AndroidManifest.xml file
@@ -29,8 +29,7 @@ public class PreconfiguredRobolectricTestRunner extends RobolectricTestRunner {
     protected Config buildGlobalConfig() {
         return new Config.Builder()
                 .setSdk(SDK_API_LEVEL_TO_EMULATE)
-                .setApplication(TestPostsApplication.class)
-                .setConstants(BuildConfig.class).build();
+                .setApplication(TestPostsApplication.class).build();
     }
 
 }
