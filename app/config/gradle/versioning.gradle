@@ -1,55 +1,56 @@
 ext.versions = [
 
         // Plugins
-        androidPluginVersion    : '3.0.0-alpha6',
-        realmPluginVersion      : '3.4.0',
+        gradleVersionsPluginVersion: '0.15.0',
+        androidPluginVersion       : '3.0.0-alpha6',
+        realmPluginVersion         : '3.4.0',
 
         // Quality Plugins
-        checkstylePluginVersion : '8.0',
-        pmdPluginVersion        : '5.8.1',
-        findbugsPluginVersion   : '3.0.1',
-        jacocoPluginVersion     : '0.7.9',
+        checkstylePluginVersion    : '8.0',
+        pmdPluginVersion           : '5.8.1',
+        findbugsPluginVersion      : '3.0.1',
+        jacocoPluginVersion        : '0.7.9',
 
         // Build
-        minSdkVersion           : 15,
-        targetSdkVersion        : 26,
-        compileSdkVersion       : 26,
-        buildToolsVersion       : '26.0.0',
+        minSdkVersion              : 15,
+        targetSdkVersion           : 26,
+        compileSdkVersion          : 26,
+        buildToolsVersion          : '26.0.0',
 
         // Android
-        supportLibrariesVersion : '26.0.0-beta2',
+        supportLibrariesVersion    : '26.0.0-beta2',
 
         // Important
-        mosbyMvpVersion         : '3.0.4',
-        dagger2Version          : '2.11',
-        butterKnifeVersion      : '8.7.0',
-        gsonVersion             : '2.8.1',
-        retrofit2Version        : '2.3.0',
+        mosbyMvpVersion            : '3.0.4',
+        dagger2Version             : '2.11',
+        butterKnifeVersion         : '8.7.0',
+        gsonVersion                : '2.8.1',
+        retrofit2Version           : '2.3.0',
 
         // ReactiveX
-        rxAndroid2Version       : '2.0.1',
-        rxJava2Version          : '2.1.1',
+        rxAndroid2Version          : '2.0.1',
+        rxJava2Version             : '2.1.1',
 
         // Image
-        picassoVersion          : '2.5.2',
-        circleImageViewVersion  : '2.1.0',
+        picassoVersion             : '2.5.2',
+        circleImageViewVersion     : '2.1.0',
 
         // Other
-        timberVersion           : '4.5.1',
-        findbugsVersion         : '2.0.1',
+        timberVersion              : '4.5.1',
+        findbugsVersion            : '2.0.1',
 
         // Debug
-        rxLintVersion           : '1.3',
+        rxLintVersion              : '1.3',
 
         // Test
-        junitVersion            : '4.12',
-        assertJJava8Version     : '3.8.0',
-        assertJJava7Version     : '2.6.0',
-        mockitoVersion          : '2.8.47',
-        rxJavaVersion           : '1.3.0',
-        robolectricVersion      : '3.3.2',
-        espressoVersion         : '2.2.2',
-        androidTestRunnerVersion: '0.5',
+        junitVersion               : '4.12',
+        assertJJava8Version        : '3.8.0',
+        assertJJava7Version        : '2.6.0',
+        mockitoVersion             : '2.8.47',
+        rxJavaVersion              : '1.3.0',
+        robolectricVersion         : '3.3.2',
+        espressoVersion            : '2.2.2',
+        androidTestRunnerVersion   : '0.5',
 
 ]
 

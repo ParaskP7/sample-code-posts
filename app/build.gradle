@@ -12,6 +12,7 @@ buildscript {
 
     dependencies {
 
+        classpath "com.github.ben-manes:gradle-versions-plugin:$versions.gradleVersionsPluginVersion"
         classpath "com.android.tools.build:gradle:$versions.androidPluginVersion"
         classpath "io.realm:realm-gradle-plugin:$versions.realmPluginVersion"
 
@@ -19,11 +20,25 @@ buildscript {
 
 }
 
+apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 
 apply from: 'config/gradle/quality.gradle'
 apply from: 'config/gradle/jacoco.gradle'
+
+dependencyUpdates.resolutionStrategy = {
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
+        }
+    }
+}
 
 android {
 
