@@ -11,7 +11,7 @@ android {
         lintConfig file("config/lint/lint.xml")
         htmlReport true
         xmlReport true
-        disable 'GoogleAppIndexingWarning'
+        disable 'GoogleAppIndexingWarning', 'MissingRegistered'
     }
 }
 

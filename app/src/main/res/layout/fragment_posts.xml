@@ -11,7 +11,8 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
-                 android:indeterminate="true"/>
+                 android:indeterminate="true"
+                 tools:ignore="UnusedIds"/>
 
     <!-- Content View -->
     <android.support.v4.widget.SwipeRefreshLayout android:id="@+id/contentView"
@@ -29,6 +30,6 @@
     <TextView android:id="@+id/errorView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              tools:ignore="SelectableText"/>
+              tools:ignore="UnusedIds,SelectableText"/>
 
 </FrameLayout>
