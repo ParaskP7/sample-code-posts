@@ -23,7 +23,7 @@ public class NetModule {
 
     @Provides
     @Singleton
-    public static RxSchedulers providesRxSchedulers() {
+    RxSchedulers providesRxSchedulers() {
         return new RxSchedulers(Schedulers.io(), Schedulers.computation(), Schedulers.trampoline(),
                 AndroidSchedulers.mainThread());
     }
