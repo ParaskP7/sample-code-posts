@@ -36,26 +36,33 @@ The below listed skills are the main focus:
 
 # Usage
 Use the below command to build the project in order to install it on an Android device for demonstration:
+
 ```
 gradlew clean build -x check
 ```
 
 Open an emulator or connect a physical device to experiment with the sample app, use the below command, which first uninstalls and then installs the sample app:
+
 ```
 gradlew uninstallDebug | gradlew installDebug
 ```
+
 Or faster yet and targeting a specific device (in our case an emulator)!
+
 ```
 adb -s emulator-5554 uninstall io.petros.posts | adb -s emulator-5554 install app\build\outputs\apk\debug\app-debug.apk
 ```
+
 ![alt tag](https://github.com/ParaskP7/sample-code-posts/blob/master/demo.jpg)
 
 Use this command in order to run the static code analysis for the project:
+
 ```
 gradlew check -x test
 ```
 
 Or even run the below commands to run a specific code quality tool in isolation:
+
 ```
 gradlew lint
 gradlew checkstyle
@@ -64,11 +71,13 @@ gradlew findbugs
 ```
 
 Run the project unit tests using this command, Jacoco is included:
+
 ```
 gradlew test
 ```
 
 Open an emulator or connect a physical device to run the instrumentation tests using this command:
+
 ```
 gradlew connectedAndroidTest
 ```
