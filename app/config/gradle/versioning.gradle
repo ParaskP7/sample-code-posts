@@ -2,7 +2,7 @@ ext.versions = [
 
         // Plugins
         gradleVersionsPluginVersion: '0.15.0',
-        androidPluginVersion       : '3.0.0-alpha7',
+        androidPluginVersion       : '3.0.0-alpha8',
         realmPluginVersion         : '3.4.0',
 
         // Quality Plugins
@@ -18,7 +18,7 @@ ext.versions = [
         buildToolsVersion          : '26.0.0',
 
         // Android
-        supportLibrariesVersion    : '26.0.0-beta2',
+        supportLibrariesVersion    : '26.0.0',
 
         // Important
         mosbyMvpVersion            : '3.0.4',
