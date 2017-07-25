@@ -74,6 +74,7 @@ Run the project unit tests using this command, Jacoco is included:
 
 ```
 gradlew test
+gradlew testDebugUnitTestCoverage
 ```
 
 Open an emulator or connect a physical device to run the instrumentation tests using this command:
