@@ -15,7 +15,7 @@ ext.versions = [
         minSdkVersion              : 15,
         targetSdkVersion           : 26,
         compileSdkVersion          : 26,
-        buildToolsVersion          : '26.0.0',
+        buildToolsVersion          : '26.0.1',
 
         // Android
         supportLibrariesVersion    : '26.0.0',
