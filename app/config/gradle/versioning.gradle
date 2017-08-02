@@ -2,7 +2,7 @@ ext.versions = [
 
         // Plugins
         gradleVersionsPluginVersion: '0.15.0',
-        androidPluginVersion       : '3.0.0-alpha8',
+        androidPluginVersion       : '3.0.0-alpha9',
         realmPluginVersion         : '3.4.0',
 
         // Quality Plugins
