@@ -131,7 +131,7 @@ dependencies {
     testCompile "io.reactivex:rxjava:$versions.rxJavaVersion" // Realm issue: java.lang.NoClassDefFoundError: rx.Observable
     // Robolectric Test
     testCompile "org.robolectric:robolectric:$versions.robolectricVersion"
-    testCompile "org.robolectric:shadows-support-v4:$versions.robolectricVersion"
+    testCompile "org.robolectric:shadows-support-v4:$versions.robolectricRCVersion"
     testCompile "org.khronos:opengl-api:gl1.1-android-2.1_r1" // See https://github.com/robolectric/robolectric/issues/1932
     // Instrumentation Test
     androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espressoVersion")
