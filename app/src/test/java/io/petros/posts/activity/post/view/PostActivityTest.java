@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * This test is ignored until a test Dagger graph is introduced, which will mock all the @Inject objects.
  */
-@Ignore("The activity cannot start because of Realm.")
+@Ignore("Problem with Realm: The activity cannot start.")
 @RunWith(PreconfiguredRobolectricTestRunner.class)
 public class PostActivityTest extends RobolectricGeneralTestHelper {
 
