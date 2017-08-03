@@ -90,61 +90,60 @@ android {
 dependencies {
 
     // Android Support
-    compile "com.android.support:support-annotations:$versions.supportLibrariesVersion"
-    compile "com.android.support:appcompat-v7:$versions.supportLibrariesVersion"
-    compile "com.android.support:recyclerview-v7:$versions.supportLibrariesVersion"
-    compile "com.android.support:cardview-v7:$versions.supportLibrariesVersion"
-    compile "com.android.support:design:$versions.supportLibrariesVersion"
+    implementation "com.android.support:support-annotations:$versions.supportLibrariesVersion"
+    implementation "com.android.support:appcompat-v7:$versions.supportLibrariesVersion"
+    implementation "com.android.support:recyclerview-v7:$versions.supportLibrariesVersion"
+    implementation "com.android.support:cardview-v7:$versions.supportLibrariesVersion"
+    implementation "com.android.support:design:$versions.supportLibrariesVersion"
     // MVP
-    compile "com.hannesdorfmann.mosby3:mvp:$versions.mosbyMvpVersion"
-    compile "com.hannesdorfmann.mosby3:mvp-lce:$versions.mosbyMvpVersion"
-    compile "com.hannesdorfmann.mosby3:mvp-nullobject-presenter:$versions.mosbyMvpVersion"
+    implementation "com.hannesdorfmann.mosby3:mvp:$versions.mosbyMvpVersion"
+    implementation "com.hannesdorfmann.mosby3:mvp-lce:$versions.mosbyMvpVersion"
+    implementation "com.hannesdorfmann.mosby3:mvp-nullobject-presenter:$versions.mosbyMvpVersion"
     // Dependency Injection
-    compile "com.google.dagger:dagger:$versions.dagger2Version"
+    implementation "com.google.dagger:dagger:$versions.dagger2Version"
     annotationProcessor "com.google.dagger:dagger-compiler:$versions.dagger2Version"
-    provided "javax.annotation:jsr250-api:1.0"
+    compileOnly "javax.annotation:jsr250-api:1.0"
     // Binding
-    compile "com.jakewharton:butterknife:$versions.butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$versions.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterKnifeVersion"
     // REST
-    compile "com.google.code.gson:gson:$versions.gsonVersion"
-    compile "com.squareup.retrofit2:retrofit:$versions.retrofit2Version"
-    compile "com.squareup.retrofit2:converter-gson:$versions.retrofit2Version"
-    compile "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit2Version"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit2Version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit2Version"
     // ReactiveX
-    compile "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2Version"
-    compile "io.reactivex.rxjava2:rxjava:$versions.rxJava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2Version"
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rxJava2Version"
     // Image
-    compile "com.squareup.picasso:picasso:$versions.picassoVersion"
-    compile "de.hdodenhof:circleimageview:$versions.circleImageViewVersion"
+    implementation "com.squareup.picasso:picasso:$versions.picassoVersion"
+    implementation "de.hdodenhof:circleimageview:$versions.circleImageViewVersion"
     // Logging
-    compile "com.jakewharton.timber:timber:$versions.timberVersion"
+    implementation "com.jakewharton.timber:timber:$versions.timberVersion"
     // @Nonnull/@Nullable Annotations
-    compile "com.google.code.findbugs:annotations:$versions.findbugsVersion"
+    implementation "com.google.code.findbugs:annotations:$versions.findbugsVersion"
     // Debug - Rx lint is a single lint check that checks if an RxJava subscriber is handling the onError() callback.
-    debugCompile "nl.littlerobots.rxlint:rxlint:$versions.rxLintVersion"
+    debugImplementation "nl.littlerobots.rxlint:rxlint:$versions.rxLintVersion"
     // Unit Test
-    testCompile "junit:junit:$versions.junitVersion"
-    testCompile "org.assertj:assertj-core:$versions.assertJJava8Version"
+    testImplementation "junit:junit:$versions.junitVersion"
+    testImplementation "org.assertj:assertj-core:$versions.assertJJava8Version"
     // Mockito
-    testCompile "org.mockito:mockito-core:$versions.mockitoVersion"
-    testCompile "io.reactivex:rxjava:$versions.rxJavaVersion" // Realm issue: java.lang.NoClassDefFoundError: rx.Observable
+    testImplementation "org.mockito:mockito-core:$versions.mockitoVersion"
+    testImplementation "io.reactivex:rxjava:$versions.rxJavaVersion" // Realm issue: java.lang.NoClassDefFoundError: rx.Observable
     // Robolectric Test
-    testCompile "org.robolectric:robolectric:$versions.robolectricVersion"
-    testCompile "org.robolectric:shadows-support-v4:$versions.robolectricRCVersion"
-    testCompile "org.khronos:opengl-api:gl1.1-android-2.1_r1" // See https://github.com/robolectric/robolectric/issues/1932
+    testImplementation "org.robolectric:robolectric:$versions.robolectricVersion"
+    testImplementation "org.robolectric:shadows-support-v4:$versions.robolectricRCVersion"
+    testImplementation "org.khronos:opengl-api:gl1.1-android-2.1_r1" // See https://github.com/robolectric/robolectric/issues/1932
     // Instrumentation Test
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espressoVersion")
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion") {
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$versions.espressoVersion")
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$versions.espressoVersion") {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
         exclude module: 'support-v13'
         exclude module: 'recyclerview-v7'
         exclude module: 'design'
     }
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:$versions.espressoVersion"
-    androidTestCompile "com.android.support.test:runner:$versions.androidTestRunnerVersion"
-    androidTestCompile "com.android.support:support-annotations:$versions.supportLibrariesVersion" // Fixes conflict issue.
-    androidTestCompile "org.assertj:assertj-core:$versions.assertJJava7Version" // To avoid dex error java 7 library is used.
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$versions.espressoVersion"
+    androidTestImplementation "com.android.support.test:runner:$versions.androidTestRunnerVersion"
+    androidTestImplementation "com.android.support:support-annotations:$versions.supportLibrariesVersion" // Fixes conflict issue.
+    androidTestImplementation "org.assertj:assertj-core:$versions.assertJJava7Version" // To avoid dex error java 7 library is used.
 
 }

@@ -24,7 +24,6 @@ ext.versions = [
         mosbyMvpVersion            : '3.0.4',
         dagger2Version             : '2.11',
         butterKnifeVersion         : '8.7.0',
-        gsonVersion                : '2.8.1',
         retrofit2Version           : '2.3.0',
 
         // ReactiveX
