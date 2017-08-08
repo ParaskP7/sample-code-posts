@@ -23,7 +23,7 @@ ext.versions = [
         // Important
         mosbyMvpVersion            : '3.0.4',
         dagger2Version             : '2.11',
-        butterKnifeVersion         : '8.7.0',
+        butterKnifeVersion         : '8.8.0',
         retrofit2Version           : '2.3.0',
 
         // ReactiveX
@@ -47,7 +47,7 @@ ext.versions = [
         assertJJava7Version        : '3.8.0',
         mockitoVersion             : '2.8.47',
         rxJavaVersion              : '1.3.0',
-        robolectricVersion         : '3.4',
+        robolectricVersion         : '3.4.2',
         robolectricRCVersion       : "3.4-rc2",
         espressoVersion            : '3.0.0',
         androidTestRunnerVersion   : '1.0.0',
